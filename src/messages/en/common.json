@@ -1,0 +1,52 @@
+{
+  "Nav": {
+    "Theme": {
+      "LightMode": "Light",
+      "DarkMode": "Dark",
+      "SystemMode": "System"
+    },
+    "Upload": "Upload",
+    "ForYou": "For You",
+    "Explore": "Explore",
+    "Reels": "Reels",
+    "Following": "Following",
+    "Profile": "Profile",
+    "FollowingAccounts": "Following accounts"
+  },
+  "ProfileOptions": {
+    "Heading": {
+      "MyProfile": "My Profile",
+      "OtherOptions": "Other Options"
+    },
+    "MyProfile": {
+      "Billing": "Billing",
+      "KeyboardShortcuts": "Keyboard Shortcuts",
+      "Language": "Language"
+    },
+    "OtherOptions": {
+      "Settings": "Settings",
+      "Github": "Github",
+      "FeedbackAndHelp": "Feedback and Help",
+      "TermsOfService": "Terms of Service",
+      "PrivacyPolicy": "Privacy Policy"
+    },
+    "Logout": "Log out"
+  },
+  "Upload": {
+    "Create": {
+      "ChooseFile": "Choose a file or drag and drop a file here.",
+      "Title": "Title",
+      "Description": "Description",
+      "Link": "Link",
+      "TaggedTopics": "Tagged Topics ({count})",
+      "OtherOptions": "Other Options",
+      "AllowComment": "Allow people to comment",
+      "ShowSimilarProducts": {
+        "Title": "Show similar products",
+        "Description": "People can shop for products similar to those in this Pin using visual search Shopping recommendations aren`t available for Idea ads and Pins with tagged products or paid partnership labels"
+      },
+      "CreatePins": "Create Pins",
+      "UploadButton": "Upload"
+    }
+  }
+}

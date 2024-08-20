@@ -1,0 +1,52 @@
+{
+  "Nav": {
+    "Theme": {
+      "LightMode": "Sáng",
+      "DarkMode": "Tối",
+      "SystemMode": "Hệ thống"
+    },
+    "Upload": "Tải lên",
+    "ForYou": "Dành cho bạn",
+    "Explore": "Khám phá",
+    "Reels": "Reels",
+    "Following": "Đang Follow ",
+    "Profile": "Hồ sơ",
+    "FollowingAccounts": "Các tài khoản đang follow"
+  },
+  "ProfileOptions": {
+    "Heading": {
+      "MyProfile": "Hồ sơ của tôi",
+      "OtherOptions": "Tùy chọn"
+    },
+    "MyProfile": {
+      "Billing": "Thanh toán",
+      "KeyboardShortcuts": "Phím tắt",
+      "Language": "Ngôn ngữ"
+    },
+    "OtherOptions": {
+      "Settings": "Cài đặt",
+      "Github": "Github",
+      "FeedbackAndHelp": "Phản hồi và Trợ giúp",
+      "TermsOfService": "Điều khoản dịch vụ",
+      "PrivacyPolicy": "Chính sách bảo mật"
+    },
+    "Logout": "Đăng xuất"
+  },
+  "Upload": {
+    "Create": {
+      "ChooseFile": "Chọn một tệp hoặc kéo và thả tệp vào đây.",
+      "Title": "Tiêu đề",
+      "Description": "Mô tả",
+      "Link": "Liên kết",
+      "TaggedTopics": "Chủ đề được gắn thẻ ({count})",
+      "OtherOptions": "Các tùy chọn khác",
+      "AllowComment": "Cho phép người khác bình luận",
+      "ShowSimilarProducts": {
+        "Title": "Hiển thị sản phẩm tương tự",
+        "Description": "Người dùng có thể mua các sản phẩm tương tự như những sản phẩm trong Pin này thông qua tìm kiếm hình ảnh. Các gợi ý mua sắm không khả dụng cho quảng cáo ý tưởng và các Pin có sản phẩm được gắn thẻ hoặc nhãn quan hệ đối tác trả phí."
+      },
+      "CreatePins": "Tạo Ghim",
+      "UploadButton": "Tải lên"
+    }
+  }
+}
