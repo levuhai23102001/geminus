@@ -57,9 +57,9 @@ export const CardPhotoList = () => {
                     loader={<DotLoader />}
                 >
                     <CardList>
-                        {photos.map((photo: any) => (
+                        {photos.map((photo: any, index: number) => (
                             <CardPhoto
-                                key={photo.id}
+                                key={index}
                                 item={photo}
                                 handleGetDetails={handleDetails}
                             />

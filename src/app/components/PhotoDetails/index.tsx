@@ -1,4 +1,13 @@
+import { styles } from "@/styles/style";
+import { yupResolver } from "@hookform/resolvers/yup";
+import EmojiPicker, { EmojiClickData, Theme } from "emoji-picker-react";
+import { useTheme } from "next-themes";
 import Image from "next/image";
+import Link from "next/link";
+import { useRef, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import * as Yup from "yup";
+import { COMMENT_DATA, IComment } from "../../../constants";
 import {
     ArrowOutIcon,
     EmojiIcon,
@@ -9,15 +18,6 @@ import {
     ShareIcon,
     ThreeDotHorizontal,
 } from "../Icons";
-import Link from "next/link";
-import { styles } from "@/styles/style";
-import { useEffect, useRef, useState } from "react";
-import EmojiPicker, { EmojiClickData, Theme } from "emoji-picker-react";
-import { useTheme } from "next-themes";
-import { COMMENT_DATA, IComment } from "../../../constants";
-import { SubmitHandler, useForm } from "react-hook-form";
-import * as Yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Portal } from "../Portal";
 
 type PhotoDetailsProps = {

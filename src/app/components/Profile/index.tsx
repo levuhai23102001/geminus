@@ -12,7 +12,11 @@ import { DialogFollowers } from "./DialogFollowers";
 import { useParams } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { getProfile } from "@/lib/features/User/userSlice";
-import { loadMe } from "@/lib/features/Auth/authSlice";
+import {
+    followUser,
+    loadMe,
+    unfollowUser,
+} from "@/lib/features/Auth/authSlice";
 import { LuLock } from "react-icons/lu";
 
 type Props = {};
@@ -24,6 +28,7 @@ export const Profile = (props: Props) => {
     const profile = useAppSelector((state) => state.user.profile);
     const dispatch = useAppDispatch();
     const [isFollowing, setIsFollowing] = useState<boolean>(false);
+    console.log(isFollowing);
 
     useEffect(() => {
         if (decodedUserLink !== authProfile.user_link) {
@@ -48,19 +53,15 @@ export const Profile = (props: Props) => {
         }
     }, [profile, authProfile]);
 
-    const handleFollowOrUnfollow = () => {
-        const profileId = profile.id;
-        const followingIds = FOLLOWING_DATA.find(
-            (data) => data.userId === authProfile.id
-        )?.following_users;
-        if (followingIds) {
-            if (followingIds.includes(profileId)) {
-                followingIds.splice(followingIds.indexOf(profileId), 1);
-                setIsFollowing(true);
-            } else {
-                followingIds.push(profileId);
-                setIsFollowing(false);
-            }
+    const handleFollowOrUnfollow = (profileId: any) => {
+        const isExistFollowing =
+            FOLLOWING_DATA[0].following_users.includes(profileId);
+        if (isExistFollowing) {
+            dispatch(unfollowUser(profileId));
+            setIsFollowing(false);
+        } else {
+            dispatch(followUser(profileId));
+            setIsFollowing(true);
         }
     };
 
@@ -100,7 +101,9 @@ export const Profile = (props: Props) => {
                             authProfile.user_link && (
                             <div
                                 className="bg-[#8556fe] text-white font-semibold py-2 px-5 w-fit h-10 rounded-md cursor-pointer"
-                                onClick={handleFollowOrUnfollow}
+                                onClick={() =>
+                                    handleFollowOrUnfollow(profile.id)
+                                }
                             >
                                 {isFollowing ? "Unfollow" : "Follow"}
                             </div>
@@ -121,6 +124,8 @@ export const Profile = (props: Props) => {
                     <DialogFollowers
                         profile={displayedProfile}
                         auth={authProfile}
+                        isFollowing={isFollowing}
+                        setIsFollowing={setIsFollowing}
                     />
                     <div className="text-left text-black dark:text-white font-normal text-base whitespace-pre-line">
                         {displayedProfile.bio === ""

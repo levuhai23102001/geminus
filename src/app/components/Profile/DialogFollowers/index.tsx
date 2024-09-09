@@ -16,6 +16,8 @@ import {
     IUser,
     USER_DATA,
 } from "@/constants";
+import { followUser, unfollowUser } from "@/lib/features/Auth/authSlice";
+import { useAppDispatch } from "@/lib/hooks";
 
 type Props = {};
 
@@ -37,9 +39,16 @@ const DIALOG_DATA = [
     },
 ];
 
-export const DialogFollowers = ({ profile, auth }: any) => {
+export const DialogFollowers = ({
+    profile,
+    auth,
+    isFollowing,
+    setIsFollowing,
+}: any) => {
     const [followingList, setFollowingList] = useState<IUser[]>([]);
     const [followerList, setFollowerList] = useState<IUser[]>([]);
+
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         getFollowings();
@@ -76,21 +85,16 @@ export const DialogFollowers = ({ profile, auth }: any) => {
         return followingIds?.includes(userId);
     };
 
-    const handleFollowOrUnfollow = (userId: string) => {
-        const followingIds = FOLLOWING_DATA.find(
-            (data) => data.userId === FAKE_PROFILE_DATA.id
-        )?.following_users;
-        if (followingIds) {
-            if (followingIds.includes(userId)) {
-                followingIds.splice(followingIds.indexOf(userId), 1);
-            } else {
-                followingIds.push(userId);
-            }
+    const handleFollowOrUnfollow = (profileId: any) => {
+        const isExistFollowing =
+            FOLLOWING_DATA[0].following_users.includes(profileId);
+        if (isExistFollowing) {
+            dispatch(unfollowUser(profileId));
+            setIsFollowing(false);
+        } else {
+            dispatch(followUser(profileId));
+            setIsFollowing(true);
         }
-        const followingUsers = USER_DATA.filter((user) =>
-            followingIds?.includes(user.id)
-        );
-        setFollowingList(followingUsers);
     };
 
     return (
